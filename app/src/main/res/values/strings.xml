@@ -2,4 +2,13 @@
     <string name="app_name">Cryptocurrency Price Tracker</string>
     <string name="no_cryptocurrency">No cryptocurrencies found</string>
     <string name="no_internet_connection">No internet connection</string>
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_title">Cryptocurrency Settings</string>
+    <string name="settings_min_rank_label">Minimum rank</string>
+    <string name="settings_min_rank_key" translatable="false">start</string>
+    <string name="settings_min_rank_default" translatable="false">0</string>
+    <string name="settings_number_of_records_label">Number of records</string>
+    <string name="settings_number_of_records_key" translatable="false">limit</string>
+    <string name="settings_number_of_records_default" translatable="false">20</string>
+
 </resources>

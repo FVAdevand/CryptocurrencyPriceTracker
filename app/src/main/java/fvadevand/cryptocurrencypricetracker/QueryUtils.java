@@ -43,7 +43,6 @@ public final class QueryUtils {
             for (int i = 0; i < currency.length(); i++) {
                 JSONObject currentCurrency = currency.getJSONObject(i);
                 String name = currentCurrency.getString("name");
-                Log.i("QueryUtils", name);
                 String symbol = currentCurrency.getString("symbol");
                 Double priceUSD = currentCurrency.getDouble("price_usd");
                 Double percent24h = currentCurrency.getDouble("percent_change_24h");
