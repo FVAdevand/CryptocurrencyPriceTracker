@@ -10,5 +10,8 @@
     <string name="settings_number_of_records_label">Number of records</string>
     <string name="settings_number_of_records_key" translatable="false">limit</string>
     <string name="settings_number_of_records_default" translatable="false">20</string>
+    <string name="percent_24h">24h: </string>
+    <string name="percent_7d">7d: </string>
+    <string name="separator_symbol_name">" | "</string>
 
 </resources>
