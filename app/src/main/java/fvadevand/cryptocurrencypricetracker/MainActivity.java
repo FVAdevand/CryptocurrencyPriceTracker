@@ -9,9 +9,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,20 +21,23 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Cryptocurrency>> {
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Cryptocurrency>>, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String USGS_REQUEST_URL = "https://api.coinmarketcap.com/v1/ticker/";
     private static final int CRYPTOCURRENCY_LOADER_ID = 1;
     private CryptocurrencyAdapter mAdapter;
     private TextView mEmptyStateTextView;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView listView = findViewById(R.id.list_view_currency);
+        mSwipeRefreshLayout = findViewById(R.id.swipe_container);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
 
+        ListView listView = findViewById(R.id.list_view_currency);
         mEmptyStateTextView = findViewById(R.id.empty_view);
         listView.setEmptyView(mEmptyStateTextView);
 
@@ -70,7 +73,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         return super.onOptionsItemSelected(item);
     }
 
-
     @Override
     public Loader<List<Cryptocurrency>> onCreateLoader(int i, Bundle bundle) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -97,11 +99,18 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mAdapter.clear();
         if (cryptocurrencies != null && !cryptocurrencies.isEmpty()) {
             mAdapter.addAll(cryptocurrencies);
+            mSwipeRefreshLayout.setRefreshing(false);
         }
     }
 
     @Override
     public void onLoaderReset(Loader<List<Cryptocurrency>> loader) {
         mAdapter.clear();
+    }
+
+    @Override
+    public void onRefresh() {
+        mSwipeRefreshLayout.setRefreshing(true);
+        getLoaderManager().restartLoader(CRYPTOCURRENCY_LOADER_ID, null, this);
     }
 }
