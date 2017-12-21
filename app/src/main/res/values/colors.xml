@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorNegativeNumber">#FF5722</color>
     <color name="colorPositiveNumber">#4CAF50</color>
+    <color name="colorDivider">#424242</color>
 </resources>

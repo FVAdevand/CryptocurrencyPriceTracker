@@ -3,6 +3,7 @@
     <dimen name="screen_edge_margin">16dp</dimen>
     <dimen name="content_left_margin">16dp</dimen>
     <dimen name="height_list_item">72dp</dimen>
+    <dimen name="half_height_list_item">36dp</dimen>
     <dimen name="size_icon_item">40dp</dimen>
-    <dimen name="gap_between_text">8dp</dimen>
+    <dimen name="gap_between_text">4dp</dimen>
 </resources>

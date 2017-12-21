@@ -12,99 +12,93 @@
         android:layout_width="@dimen/size_icon_item"
         android:layout_height="@dimen/size_icon_item"
         android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/content_left_margin"
+        android:contentDescription="@string/image_icon_cryptocurrency"
         android:src="@drawable/btc" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/screen_edge_margin"
+        android:layout_height="@dimen/half_height_list_item"
+        android:layout_alignParentTop="true"
         android:layout_toEndOf="@id/list_item_icon"
-        android:orientation="vertical">
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/symbol_text_view"
+            style="@style/Bold_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="BTC" />
+
+        <ImageView
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/gap_between_text"
+            android:layout_marginStart="@dimen/gap_between_text"
+            android:contentDescription="@string/image_separator"
+            android:src="@drawable/separator" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+        <TextView
+            android:id="@+id/name_text_view"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="Bitcoin" />
 
-            <TextView
-                android:id="@+id/symbol_text_view"
-                style="@style/Bold_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="BTC" />
+        <TextView
+            android:id="@+id/priceUSD_text_view"
+            style="@style/Bold_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="1250.0$" />
 
-            <TextView
-                style="@style/Base.TextAppearance.AppCompat.Medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/separator_symbol_name" />
-
-
-            <TextView
-                android:id="@+id/name_text_view"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:maxWidth="150dp"
-                tools:text="Bitcoin" />
-
-            <TextView
-                android:id="@+id/priceUSD_text_view"
-                style="@style/Bold_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                tools:text="1250.0$" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/Base.TextAppearance.AppCompat.Medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:paddingEnd="@dimen/gap_between_text"
-                android:paddingStart="@dimen/screen_edge_margin"
-                android:text="@string/percent_24h" />
-
-            <TextView
-                android:id="@+id/percent24h_text_view"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:gravity="start"
-                tools:text="1,15%" />
-
-            <TextView
-                style="@style/Base.TextAppearance.AppCompat.Medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:paddingEnd="@dimen/gap_between_text"
-
-                android:text="@string/percent_7d" />
-
-            <TextView
-                android:id="@+id/percent7d_text_view"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="start"
-                tools:text="5,65%" />
-
-        </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/half_height_list_item"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/list_item_icon"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_edge_margin"
+            android:text="@string/percent_24h" />
+
+        <TextView
+            android:id="@+id/percent24h_text_view"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/gap_between_text"
+            android:layout_weight="0.5"
+            tools:text="1,15%" />
+
+        <TextView
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/percent_7d" />
+
+        <TextView
+            android:id="@+id/percent7d_text_view"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/gap_between_text"
+            android:layout_weight="0.5"
+            tools:text="5,65%" />
+
+    </LinearLayout>
 
 </RelativeLayout>
